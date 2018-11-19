@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:doubanflutter/tools/NetWork.dart';
 
 class FilmPage extends StatefulWidget {
   @override
@@ -13,7 +14,12 @@ class _FilmPageState extends State<FilmPage> {
     void initState() {
       print("aaaaa");
       super.initState();
+      _pullNet();
     }
+
+  _pullNet() {
+    Future u = get(url: "http://www.wanandroid.com/project/list/1/json?cid=1");
+  }
 
   int count = 0;
   @override
@@ -28,6 +34,7 @@ class _FilmPageState extends State<FilmPage> {
             color: Colors.red,
             pressedOpacity: 0.9,
             onPressed: () {
+              _pullNet();
               setState(() {
                               count++;
                             });
