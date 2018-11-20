@@ -46,4 +46,23 @@ class  HttpUtil {
     }
     return response.data;
   }
+
+  post(@required String url, {data, options, cancelToken}) async {
+    print('post请求启动! url：$url ,body: $data');
+    Response response;
+    try {
+      response = await dio.post(
+        url,
+        data: data,
+        cancelToken: cancelToken,
+      );
+      print('post请求成功!');
+    } on DioError catch (e) {
+      if (CancelToken.isCancel(e)) {
+         print('post请求取消! ' + e.message);       
+      } 
+      print('post 请求失败: $e');
+    }
+    return response.data;
+  }
 }

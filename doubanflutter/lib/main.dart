@@ -44,9 +44,9 @@ class _TabbarPageState extends State<TabbarPage> {
         bottomNavigationBar: CupertinoTabBar(
           currentIndex: _currentIndex,
           items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(title: Text("电影"), icon: Icon(Icons.wifi)),
-            BottomNavigationBarItem(title: Text("图片"), icon: Icon(Icons.wifi)),
-            BottomNavigationBarItem(title: Text("音乐"), icon: Icon(Icons.wifi)),
+            BottomNavigationBarItem(title: Text("电影"), icon: Icon(Icons.movie)),
+            BottomNavigationBarItem(title: Text("图片"), icon: Icon(Icons.book)),
+            BottomNavigationBarItem(title: Text("音乐"), icon: Icon(Icons.music_note)),
           ],
           onTap: (index) {
             setState(() {
