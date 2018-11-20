@@ -1,19 +1,49 @@
-import 'dart:io';
-import 'dart:convert';
 import 'package:flutter/foundation.dart';
+import 'package:dio/dio.dart';
 
 // http://www.wanandroid.com/project/list/1/json?cid=1
 // https://jsonplaceholder.typicode.com/posts
 
-get({@required String url}) async {
-  var httpClient = HttpClient();
-  var uri = Uri.http(url, "");
-  var request = await httpClient.getUrl(uri);
-  var response = await request.close();
-  if (response.statusCode == HttpStatus.ok) {
-      var responseBody = await response.transform(utf8.decoder).join();
-      return json.decode(responseBody);
-  } else {
-    print("{url} 失败");
+class  HttpUtil {
+  static HttpUtil instance;
+  Dio dio;
+  Options options;
+
+  static HttpUtil getInstance() {
+    if (instance == null) {
+      instance = HttpUtil();
+    }
+    return instance;
+  }
+
+  HttpUtil() {
+    options = Options(
+      baseUrl: '',
+      connectTimeout: 5000,
+      receiveTimeout: 3000,
+      method: 'GET',
+      headers: {}
+    );
+
+    dio = Dio(options);
+  }
+
+  get(@required String url, {data, options, cancelToken}) async {
+    print('get请求启动! url：$url ,body: $data');
+    Response response;
+    try {
+      response = await dio.get(
+        url,
+        data: data,
+        cancelToken: cancelToken,
+      );
+      print('get请求成功!');
+    } on DioError catch (e) {
+      if (CancelToken.isCancel(e)) {
+         print('get请求取消! ' + e.message);       
+      } 
+      print('get 请求失败: $e');
+    }
+    return response.data;
   }
 }

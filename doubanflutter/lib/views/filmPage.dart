@@ -17,8 +17,10 @@ class _FilmPageState extends State<FilmPage> {
       _pullNet();
     }
 
-  _pullNet() {
-    Future u = get(url: "http://www.wanandroid.com/project/list/1/json?cid=1");
+  _pullNet() async {
+    final url = 'http://www.wanandroid.com/project/list/1/json?cid=1';
+    var response = await HttpUtil().get(url);
+    print(response);
   }
 
   int count = 0;
@@ -26,7 +28,7 @@ class _FilmPageState extends State<FilmPage> {
     Widget build(BuildContext context) {
       return Scaffold(
         appBar: AppBar(
-          title: Text('首页'),
+          title: Text('电影'),
         ),
         body: Center(
           child: CupertinoButton(
