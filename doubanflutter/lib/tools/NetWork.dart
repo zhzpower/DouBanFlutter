@@ -4,6 +4,12 @@ import 'package:dio/dio.dart';
 // http://www.wanandroid.com/project/list/1/json?cid=1
 // https://jsonplaceholder.typicode.com/posts
 
+
+  // 获取数据 http://api.douban.com/v2/movie/in_theaters
+  // 搜索 http://api.douban.com/v2/movie/search?tag=喜剧
+  // http://api.douban.com/v2/movie/subject/1764796
+  // http://api.douban.com/v2/movie/search?q=战狼&count=1
+  // http://api.douban.com/v2/movie/top250?start=25&count=25
 class  HttpUtil {
   static HttpUtil instance;
   Dio dio;

@@ -5,6 +5,7 @@ import 'package:doubanflutter/models/movie.dart';
 import 'package:doubanflutter/tools/Utils.dart';
 
 class FilmPage extends StatefulWidget {
+  String title = "电影";
   List<Movie> movieList;
   bool isLoad;
   ScrollController scrollController = ScrollController();
@@ -30,12 +31,12 @@ class _FilmPageState extends State<FilmPage> {
 
   // 获取数据
   _pullNet() async {
-    final url = 'https://api.douban.com/v2/movie/subject/';
+    final url = 'http://api.douban.com/v2/movie/top250?start=25&count=5';
     var response = await HttpUtil().get(url);
-    print(response);
     if (response != null) {
       setState(() {
-        widget.movieList = Movie.movieList(response['data']);
+        widget.title = response['title'];
+        widget.movieList = Movie.movieList(response['subjects']);
       });
     }
   }
@@ -62,7 +63,7 @@ class _FilmPageState extends State<FilmPage> {
     Widget build(BuildContext context) {
       return Scaffold(
         appBar: AppBar(
-          title: Text('电影'),
+          title: Text(widget.title),
         ),
         body: widget.movieList == null ? _loading() : _body(),
       );
@@ -84,7 +85,19 @@ class MovieItem extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: <Widget>[
-                Text(movie.title),
+                Image.network(
+                  movie.image,
+                  height: 80,
+                  width: 60,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(movie.title),
+                    Text(movie.year),
+                    Text(movie.alt, maxLines: 2, softWrap: true, style: new TextStyle(fontSize: 16.0), overflow: TextOverflow.ellipsis, textAlign: TextAlign.left,),
+                  ],
+                )
               ],
             ),
           ),
