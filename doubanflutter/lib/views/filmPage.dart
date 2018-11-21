@@ -107,7 +107,11 @@ class MovieItem extends StatelessWidget {
                       ),
                       
                       Text(movie.year),
-                      Text(movie.alt, maxLines: 2, softWrap: true, style: new TextStyle(fontSize: 16.0), overflow: TextOverflow.ellipsis, textAlign: TextAlign.left,),
+                      Container(
+                        height: 30,
+                        width: 200,
+                        child: Text(movie.alt, maxLines: 2, softWrap: true, style: new TextStyle(fontSize: 16.0), overflow: TextOverflow.ellipsis, textAlign: TextAlign.left,),
+                      )
                     ],
                   ),
                 )
