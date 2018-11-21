@@ -3,8 +3,13 @@ import 'package:flutter/cupertino.dart';
 import 'views/filmPage.dart';
 import 'views/musicPage.dart';
 import 'views/booksPage.dart';
+import 'package:flutter/rendering.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  debugPaintSizeEnabled=true;
+  runApp(MyApp());
+}
+// void main() => runApp(MyApp());
 // https://github.com/rhymelph/flutter_douban
 
 class MyApp extends StatelessWidget {

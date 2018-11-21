@@ -87,16 +87,29 @@ class MovieItem extends StatelessWidget {
               children: <Widget>[
                 Image.network(
                   movie.image,
-                  height: 80,
-                  width: 60,
+                  width: 100.0,
+                  height: 150.0,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(movie.title),
-                    Text(movie.year),
-                    Text(movie.alt, maxLines: 2, softWrap: true, style: new TextStyle(fontSize: 16.0), overflow: TextOverflow.ellipsis, textAlign: TextAlign.left,),
-                  ],
+                Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Container(
+                        child: Text(
+                          movie.title,
+                          style: Theme.of(context).textTheme.title
+                        ),
+                        ),
+                      ),
+                      
+                      Text(movie.year),
+                      Text(movie.alt, maxLines: 2, softWrap: true, style: new TextStyle(fontSize: 16.0), overflow: TextOverflow.ellipsis, textAlign: TextAlign.left,),
+                    ],
+                  ),
                 )
               ],
             ),
