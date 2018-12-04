@@ -31,7 +31,7 @@ class _FilmPageState extends State<FilmPage> {
 
   // 获取数据
   _pullNet() async {
-    final url = 'http://api.douban.com/v2/movie/top250?start=25&count=5';
+    final url = 'http://api.douban.com/v2/movie/top250?start=25&count=20';
     var response = await HttpUtil().get(url);
     if (response != null) {
       setState(() {
@@ -90,29 +90,32 @@ class MovieItem extends StatelessWidget {
                   width: 100.0,
                   height: 150.0,
                 ),
-                Padding(
-                  padding: EdgeInsets.all(8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
-                    children: <Widget>[
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: Container(
-                        child: Text(
-                          movie.title,
-                          style: Theme.of(context).textTheme.title
+                Container(
+                  height: 150,
+                  child: Padding(
+                    padding: EdgeInsets.all(8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Container(
+                          child: Text(
+                            movie.title,
+                            style: Theme.of(context).textTheme.title
+                          ),
+                          ),
                         ),
-                        ),
-                      ),
-                      
-                      Text(movie.year),
-                      Container(
-                        height: 30,
-                        width: 200,
-                        child: Text(movie.alt, maxLines: 2, softWrap: true, style: new TextStyle(fontSize: 16.0), overflow: TextOverflow.ellipsis, textAlign: TextAlign.left,),
-                      )
-                    ],
+                        
+                        Text(movie.year),
+                        Container(
+                          height: 30,
+                          width: 200,
+                          child: Text(movie.alt, maxLines: 2, softWrap: true, style: new TextStyle(fontSize: 16.0), overflow: TextOverflow.ellipsis, textAlign: TextAlign.left,),
+                        )
+                      ],
+                    ),
                   ),
                 )
               ],

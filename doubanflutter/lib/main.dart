@@ -4,6 +4,7 @@ import 'views/filmPage.dart';
 import 'views/musicPage.dart';
 import 'views/booksPage.dart';
 import 'package:flutter/rendering.dart';
+import 'views/aboutMe.dart';
 
 void main() {
   debugPaintSizeEnabled=true;
@@ -36,7 +37,8 @@ class _TabbarPageState extends State<TabbarPage> {
   var _pageList = [
     FilmPage(),
     BooksPage(),
-    MusicPage()
+    MusicPage(),
+    AboutMePage()
   ];
 
   @override
@@ -52,6 +54,7 @@ class _TabbarPageState extends State<TabbarPage> {
             BottomNavigationBarItem(title: Text("电影"), icon: Icon(Icons.movie)),
             BottomNavigationBarItem(title: Text("图片"), icon: Icon(Icons.book)),
             BottomNavigationBarItem(title: Text("音乐"), icon: Icon(Icons.music_note)),
+            BottomNavigationBarItem(title: Text("我的"), icon: Icon(Icons.portrait)),
           ],
           onTap: (index) {
             setState(() {
