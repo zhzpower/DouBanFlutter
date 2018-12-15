@@ -90,28 +90,22 @@ class MovieItem extends StatelessWidget {
                   width: 100.0,
                   height: 150.0,
                 ),
-                Container(
-                  height: 150,
-                  child: Padding(
-                    padding: EdgeInsets.all(8),
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.all(10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
+                      mainAxisAlignment: MainAxisAlignment.start, 
                       children: <Widget>[
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Container(
-                          child: Text(
-                            movie.title,
-                            style: Theme.of(context).textTheme.title
-                          ),
-                          ),
+                        Container(
+                          padding: EdgeInsets.only(bottom: 10),
+                          child: Text(movie.title),
                         ),
-                        
                         Text(movie.year),
                         Container(
                           height: 30,
                           width: 200,
+                          padding: EdgeInsets.only(top: 10),
                           child: Text(movie.alt, maxLines: 2, softWrap: true, style: new TextStyle(fontSize: 16.0), overflow: TextOverflow.ellipsis, textAlign: TextAlign.left,),
                         )
                       ],
