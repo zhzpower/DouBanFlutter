@@ -22,10 +22,19 @@ class _AboutMePageState extends State<AboutMePage> {
               return AboutMeHeaderView();
             }
 
-            return ListTile(
-              title: Text("第 $index 行"),
+            return GestureDetector(
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Row(
+                  children: <Widget>[
+                    Icon(Icons.star),
+                    Text("data"),
+                    Icon(Icons.arrow_forward_ios)
+                  ],
+                ),
+              ),
               onTap: () {
-                print("$index 行");
+                print('aaaaa  $index');
               },
             );
           },

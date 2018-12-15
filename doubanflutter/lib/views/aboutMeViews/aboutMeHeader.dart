@@ -11,17 +11,23 @@ class _AboutMeHeaderViewState extends State<AboutMeHeaderView> {
   @override
     Widget build(BuildContext context) {
       return Container(
-        padding: EdgeInsets.fromLTRB(10, 15, 15, 15),
-        height: 70,
+        padding: EdgeInsets.all(15),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text("dadd民", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-                Text("dadd民"),
-              ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.only(bottom: 10),
+                    child: Text(
+                      "dada民",
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Text("性别: 男")
+                ],
+              ),
             ),
             Image.network(
               "http://img1.doubanio.com/view/photo/s_ratio_poster/public/p462657443.jpg",
