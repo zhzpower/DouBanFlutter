@@ -22,20 +22,29 @@ class _AboutMePageState extends State<AboutMePage> {
               return AboutMeHeaderView();
             }
 
-            return GestureDetector(
-              child: Container(
-                padding: EdgeInsets.all(10),
+            return Container(
+              padding: EdgeInsets.all(10),
+              child: GestureDetector(
                 child: Row(
                   children: <Widget>[
-                    Icon(Icons.star),
-                    Text("data"),
-                    Icon(Icons.arrow_forward_ios)
+                    Expanded(
+                      child: Row(
+                        children: <Widget>[
+                          Icon(Icons.star, color: Colors.cyan,),
+                          Text(
+                            " 第 $index 行",
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Icon(Icons.arrow_forward_ios, color: Colors.grey,)
                   ],
                 ),
+                onTap: () {
+                  print("$index  哈哈");
+                },
               ),
-              onTap: () {
-                print('aaaaa  $index');
-              },
             );
           },
         ),
