@@ -82,6 +82,7 @@ class MovieItem extends StatelessWidget {
         },
         child: Card(
           child: Container(
+            color: Colors.blue,
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: <Widget>[
@@ -90,28 +91,21 @@ class MovieItem extends StatelessWidget {
                   width: 100.0,
                   height: 150.0,
                 ),
-                Expanded(
-                  child: Container(
+                Container(
                     padding: EdgeInsets.all(10),
+                    color: Colors.red,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start, 
                       children: <Widget>[
-                        Container(
-                          padding: EdgeInsets.only(bottom: 10),
-                          child: Text(movie.title),
-                        ),
+                        Text(movie.title),
                         Text(movie.year),
                         Container(
-                          height: 30,
-                          width: 200,
                           padding: EdgeInsets.only(top: 10),
                           child: Text(movie.alt, maxLines: 2, softWrap: true, style: new TextStyle(fontSize: 16.0), overflow: TextOverflow.ellipsis, textAlign: TextAlign.left,),
                         )
                       ],
                     ),
                   ),
-                )
               ],
             ),
           ),
