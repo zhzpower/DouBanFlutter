@@ -5,11 +5,6 @@ import 'package:doubanflutter/models/movie.dart';
 import 'package:doubanflutter/tools/Utils.dart';
 
 class FilmPage extends StatefulWidget {
-  String title = "电影";
-  List<Movie> movieList;
-  bool isLoad;
-  ScrollController scrollController = ScrollController();
-
   @override
     State<StatefulWidget> createState() {
       return _FilmPageState();
@@ -17,12 +12,14 @@ class FilmPage extends StatefulWidget {
 }
 
 class _FilmPageState extends State<FilmPage> {
-
+  String title = "电影";
+  ScrollController scrollController = ScrollController();
+  List<Movie> movieList;
   @override
     void initState() {
       super.initState();
-      widget.scrollController.addListener(() {
-        if (widget.scrollController.position.pixels == widget.scrollController.position.maxScrollExtent) {
+      this.scrollController.addListener(() {
+        if (this.scrollController.position.pixels == this.scrollController.position.maxScrollExtent) {
           _pullNet();
         }
       });
@@ -35,8 +32,8 @@ class _FilmPageState extends State<FilmPage> {
     var response = await HttpUtil().get(url);
     if (response != null) {
       setState(() {
-        widget.title = response['title'];
-        widget.movieList = Movie.movieList(response['subjects']);
+        this.title = response['title'];
+        this.movieList = Movie.movieList(response['subjects']);
       });
     }
   }
@@ -49,10 +46,10 @@ class _FilmPageState extends State<FilmPage> {
   // 数据页
   _body() {
     return ListView.builder(
-        controller: widget.scrollController,
-        itemCount: widget.movieList.length,
+        controller: this.scrollController,
+        itemCount: this.movieList.length,
         itemBuilder: (context, index) {
-          Movie movie = widget.movieList[index];
+          Movie movie = this.movieList[index];
           return MovieItem(movie: movie);
         },
     );
@@ -63,9 +60,9 @@ class _FilmPageState extends State<FilmPage> {
     Widget build(BuildContext context) {
       return Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: Text(this.title),
         ),
-        body: widget.movieList == null ? _loading() : _body(),
+        body: this.movieList == null ? _loading() : _body(),
       );
     }
 }
