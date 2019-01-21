@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:doubanflutter/views/aboutMeViews/aboutMeHeader.dart';
+import 'package:doubanflutter/views/aboutMeViews/fansView.dart';
 
 class AboutMePage extends StatefulWidget {
   @override
@@ -20,6 +21,9 @@ class _AboutMePageState extends State<AboutMePage> {
           itemBuilder: (context, index) {
             if (index == 0) {
               return AboutMeHeaderView();
+            }
+            if (index == 1) {
+              return FansView();
             }
 
             return Container(
