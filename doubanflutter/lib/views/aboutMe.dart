@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:doubanflutter/views/aboutMeViews/aboutMeHeader.dart';
 import 'package:doubanflutter/views/aboutMeViews/fansView.dart';
 import 'package:doubanflutter/views/aboutMeViews/godInfoView.dart';
+import 'package:doubanflutter/views/aboutMeViews/moreServiceView.dart';
 
 class AboutMePage extends StatefulWidget {
   @override
@@ -19,7 +20,7 @@ class _AboutMePageState extends State<AboutMePage> {
         ),
         backgroundColor: Color(0xF7F9FB),
         body: ListView.builder(
-          itemCount: 10,
+          itemCount: 4,
           itemBuilder: (context, index) {
             if (index == 0) {
               return AboutMeHeaderView();
@@ -33,31 +34,9 @@ class _AboutMePageState extends State<AboutMePage> {
             if (index == 2) {
               return GodInfoView();
             }
-
-            return Container(
-              padding: EdgeInsets.all(10),
-              child: GestureDetector(
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Row(
-                        children: <Widget>[
-                          Icon(Icons.star, color: Colors.cyan,),
-                          Text(
-                            " 第 $index 行",
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Icon(Icons.arrow_forward_ios, color: Colors.grey,)
-                  ],
-                ),
-                onTap: () {
-                  print("$index  哈哈");
-                },
-              ),
-            );
+            if (index == 3) {
+              return MoreServiceView(tips: "这个是我传过来的值, 哈哈哈");
+            }
           },
         ),
       );

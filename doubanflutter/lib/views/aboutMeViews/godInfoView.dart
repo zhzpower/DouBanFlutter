@@ -70,14 +70,5 @@ class _GodInfoViewState extends State<GodInfoView> {
           ),
       );
 
-      return Container(
-        child: Padding(
-          child: Column(
-            children: <Widget>[
-              
-            ],
-          ),
-        ),
-      );
     }
 }

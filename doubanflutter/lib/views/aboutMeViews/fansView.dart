@@ -35,14 +35,17 @@ class _FansViewState extends State<FansView> {
 
   @override
     Widget build(BuildContext context) {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          createMyView("粉丝", 100, "+10"),
-          createMyView("关注", 50, "+32"),
-          createMyView("浏览", 102, "+10"),
-          createMyView("足迹", 66, "+99"),
-        ],
+      return Padding(
+        padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            createMyView("粉丝", 100, "+10"),
+            createMyView("关注", 50, "+32"),
+            createMyView("浏览", 102, "+10"),
+            createMyView("足迹", 66, "+99"),
+          ],
+        ),
       );
     }
 }
