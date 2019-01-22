@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:doubanflutter/views/aboutMeViews/aboutMeHeader.dart';
 import 'package:doubanflutter/views/aboutMeViews/fansView.dart';
+import 'package:doubanflutter/views/aboutMeViews/godInfoView.dart';
 
 class AboutMePage extends StatefulWidget {
   @override
@@ -16,6 +17,7 @@ class _AboutMePageState extends State<AboutMePage> {
         appBar: AppBar(
           title: Text('我的'),
         ),
+        backgroundColor: Color(0xF7F9FB),
         body: ListView.builder(
           itemCount: 10,
           itemBuilder: (context, index) {
@@ -23,7 +25,13 @@ class _AboutMePageState extends State<AboutMePage> {
               return AboutMeHeaderView();
             }
             if (index == 1) {
-              return FansView();
+              return Container(
+                color: Colors.white,
+                child: FansView(),
+              );
+            }
+            if (index == 2) {
+              return GodInfoView();
             }
 
             return Container(
