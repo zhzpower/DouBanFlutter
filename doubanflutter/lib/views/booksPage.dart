@@ -38,12 +38,26 @@ class _BooksPageState extends State<BooksPage> {
           child: GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              mainAxisSpacing: 5
+              mainAxisSpacing: 5,
+              crossAxisSpacing: 2
             ),
             itemCount: this.myList.length,
             itemBuilder: (context, index) {
               final item = this.myList[index];
-              return Text(item.title);
+              return Container(
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Image.network(item.image, height: 120, width: 80,),
+                      Padding(
+                        padding: EdgeInsets.only(top: 10),
+                        child: Text(item.title, style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold, fontSize: 16)),
+                      )
+                    ],
+                  ),
+                ),
+              );
             },
           ),
         ),
