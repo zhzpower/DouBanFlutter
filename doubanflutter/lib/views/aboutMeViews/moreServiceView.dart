@@ -31,6 +31,7 @@ class _MoreServiceViewState extends State<MoreServiceView> {
               Container(
                 height: 150,
                 child: GridView.builder(
+                  physics: NeverScrollableScrollPhysics(),
                   padding: const EdgeInsets.fromLTRB(15, 5, 15, 15),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 4,
