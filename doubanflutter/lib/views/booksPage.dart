@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:doubanflutter/models/movie.dart';
+import 'package:doubanflutter/tools/NetWork.dart';
 
 class BooksPage extends StatefulWidget {
   @override
@@ -6,20 +8,44 @@ class BooksPage extends StatefulWidget {
       return _BooksPageState();
     }
 }
+// 
+class _BooksPageState extends State<BooksPage> {
 
-class _BooksPageState extends State<BooksPage> with AutomaticKeepAliveClientMixin {
-  
+  List<Movie> myList;
   @override
-    bool get wantKeepAlive => true;
-    
+    void initState() {
+      super.initState();
+      _reloadData();
+    }
+
+  _reloadData() async {
+    final url = 'http://api.douban.com/v2/movie/in_theaters?city=上海&start=0&count=10';
+    final response = await HttpUtil().get(url);
+    if (response != null) {
+      setState(() {
+              this.myList = Movie.movieList(response['subjects']);
+            });
+    }
+  }
+
   @override
     Widget build(BuildContext context) {
       return Scaffold(
         appBar: AppBar(
-          title: Text('消息'),
+          title: Text('图片'),
         ),
-        body: Center(
-          child: Text('消息'),
+        body: this.myList == null ? Container(): Center(
+          child: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 5
+            ),
+            itemCount: this.myList.length,
+            itemBuilder: (context, index) {
+              final item = this.myList[index];
+              return Text(item.title);
+            },
+          ),
         ),
       );
     }
