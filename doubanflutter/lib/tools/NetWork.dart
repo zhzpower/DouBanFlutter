@@ -34,7 +34,7 @@ class  HttpUtil {
     dio = Dio(options);
   }
 
-  get(@required String url, {data, options, cancelToken}) async {
+  get(String url, {data, options, cancelToken}) async {
     print('get请求启动! url：$url ,body: $data');
     Response response;
     try {
