@@ -53,7 +53,7 @@ class  HttpUtil {
     return response.data;
   }
 
-  post(@required String url, {data, options, cancelToken}) async {
+  post(String url, {data, options, cancelToken}) async {
     print('post请求启动! url：$url ,body: $data');
     Response response;
     try {
