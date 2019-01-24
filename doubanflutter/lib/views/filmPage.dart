@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:doubanflutter/tools/NetWork.dart';
 import 'package:doubanflutter/models/movie.dart';
 import 'package:doubanflutter/tools/Utils.dart';
+import 'package:doubanflutter/views/movieDetailPage.dart';
 
 class FilmPage extends StatefulWidget {
   @override
@@ -76,6 +77,12 @@ class MovieItem extends StatelessWidget {
       return GestureDetector(
         onTap: () {
           print(movie.title);
+          Navigator.push(
+            context, 
+            MaterialPageRoute(builder: (context) {
+              return MovieDetailPage(moveId: movie.id,);
+            })
+          );
         },
         child: Card(
           child: Container(
