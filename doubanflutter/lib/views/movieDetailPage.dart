@@ -34,7 +34,16 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
           title: Text('详情'),
         ),
         body: Container(
-          child: Text(widget.moveId),
+          child: Padding(
+            padding: EdgeInsets.all(1),
+            child: ListView.builder(
+              itemCount: 3,
+              itemBuilder: (context, index) {
+
+                return Text('data');
+              },
+            ),
+          )
         ),
       );
     }
