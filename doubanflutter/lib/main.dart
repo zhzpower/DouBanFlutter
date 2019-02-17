@@ -7,7 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'views/aboutMe.dart';
 
 void main() {
-  debugPaintSizeEnabled=true;
+  debugPaintSizeEnabled=false;
   runApp(MyApp());
 }
 // void main() => runApp(MyApp());
