@@ -26,5 +26,19 @@ class AppModel {
     AppModel(this.trackId, this.trackName, this.artworkUrl60, this.sellerName, this.userRatingCount, this.releaseDate, this.updateDate, this.offlineDate, this.offlineRank, this.genre, this.price);
     // https://www.chandashi.com/bang/delistdata/genre/0/date/2019-02-18.html?page=1&order=rank
   
-
+    static AppModel formatModel(Map<String, Object> dict) {
+        var trackId = dict["trackId"];
+        var trackName = dict["trackName"];
+        var artworkUrl60 = dict["artworkUrl60"];
+        var sellerName = dict["sellerName"];
+        var userRatingCount = dict["userRatingCount"];
+        var releaseDate = dict["releaseDate"];
+        var updateDate = dict["updateDate"];
+        var offlineDate = dict["offlineDate"];
+        var offlineRank = dict["offlineRank"];
+        var genre = dict["genre"];
+        var price = dict["price"];
+        AppModel model = AppModel(trackId, trackName, artworkUrl60, sellerName, userRatingCount, releaseDate, updateDate, offlineDate, offlineRank, genre, price);
+        return model;
+    }
 }

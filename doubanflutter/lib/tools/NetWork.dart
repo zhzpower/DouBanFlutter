@@ -50,6 +50,9 @@ class  HttpUtil {
       } 
       print('get 请求失败: $e');
     }
+    if (response == null) {
+      return null;
+    }
     return response.data;
   }
 
