@@ -53,7 +53,7 @@ class _TabbarPageState extends State<TabbarPage> {
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(title: Text("电影"), icon: Icon(Icons.movie)),
             BottomNavigationBarItem(title: Text("图片"), icon: Icon(Icons.book)),
-            BottomNavigationBarItem(title: Text("音乐"), icon: Icon(Icons.music_note)),
+            BottomNavigationBarItem(title: Text("app"), icon: Icon(Icons.apps)),
             BottomNavigationBarItem(title: Text("我的"), icon: Icon(Icons.portrait)),
           ],
           onTap: (index) {
