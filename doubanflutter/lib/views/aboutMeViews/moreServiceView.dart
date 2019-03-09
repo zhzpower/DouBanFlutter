@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:ui';
 
 class MoreServiceView extends StatefulWidget {
 
@@ -46,6 +47,7 @@ class _MoreServiceViewState extends State<MoreServiceView> {
                           GestureDetector(
                             child: Icon(Icons.cake, color: Colors.cyan,),
                             onTap: () {
+                              print(MediaQuery.of(context).toString());
                               print(widget.tips);
                             },
                           ),

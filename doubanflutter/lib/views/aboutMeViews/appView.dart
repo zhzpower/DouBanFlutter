@@ -33,7 +33,7 @@ class AppItemView extends StatelessWidget {
             Expanded(
                 child: Text(" 名次 ${this.appModel.offlineRank}", style: TextStyle(color: Color.fromRGBO(200, 100, 200, 1), fontSize: 13),),
             ),
-            Text("类型 (${this.appModel.genre})")
+            Text("${this.appModel.genre}")
           ],
         ),
       ),
