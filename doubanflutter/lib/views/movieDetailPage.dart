@@ -41,28 +41,29 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
           title: Text(this.movieDetail == null ? "详情": this.movieDetail.name),
         ),
         body: this.movieDetail == null ? LoadingProgress() : Container(
-          child: 
-          // CustomScrollView(
-            
-            
-          // ),
-          
-          Column(
-            children: <Widget>[
-              Image.network(this.movieDetail.image, width: MediaQuery.of(context).size.width, height:  MediaQuery.of(context).size.width,),
-              Padding(
-                padding: EdgeInsets.all(15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text("剧情简介\n",style: TextStyle(color: Color(0xff9b9b9b)),),
-                    Text(this.movieDetail.summary),
-                    
-                  ],
-                ),
-              )
-            ],
-          ),
+          child: SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: MediaQuery.of(context).size.height
+              ),
+              child: Column(
+                children: <Widget>[
+                  Image.network(this.movieDetail.image, width: MediaQuery.of(context).size.width, height:  MediaQuery.of(context).size.width,),
+                  Padding(
+                    padding: EdgeInsets.all(15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text("剧情简介\n",style: TextStyle(color: Color(0xff9b9b9b)),),
+                        Text(this.movieDetail.summary),
+                        
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ) 
+          )
         ),
       );
     }
