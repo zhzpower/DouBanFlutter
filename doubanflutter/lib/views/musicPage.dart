@@ -10,12 +10,9 @@ class MusicPage extends StatefulWidget {
     }
 }
 
-class _MusicPageState extends State<MusicPage> with AutomaticKeepAliveClientMixin {
+class _MusicPageState extends State<MusicPage> {
   
   List appList;
-  @override
-    bool get wantKeepAlive => true;
-
   @override
   void initState() { 
     super.initState();
@@ -26,7 +23,7 @@ class _MusicPageState extends State<MusicPage> with AutomaticKeepAliveClientMixi
   _reloadData() async {
     DateTime now = DateTime.now();
     String dateNow = "${now.year.toString()}-${now.month.toString()}-${now.day.toString()}"; 
-    final url = "https://www.chandashi.com/bang/delistdata/genre/0/date/${dateNow}.html?page=1&order=rank";
+    var url = "https://www.chandashi.com/bang/delistdata/genre/0/date/" + dateNow + ".html?page=1&order=rank";
     var response = await HttpUtil().get(url);
     if (response != null) {
       List datas =response["data"];

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 class Movie {
   final String title;//标题

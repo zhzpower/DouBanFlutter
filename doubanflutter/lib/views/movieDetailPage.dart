@@ -24,7 +24,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
     }
 
   _headerRefresh() async {
-    final url = 'http://api.douban.com/v2/movie/subject/' + widget.moveId;
+    final url = 'http://douban.uieee.com/v2/movie/subject/' + widget.moveId;
     var response = await HttpUtil.getInstance().get(url);
     if (response != null) {
       print(response);

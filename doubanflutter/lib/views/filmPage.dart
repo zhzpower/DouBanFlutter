@@ -29,7 +29,7 @@ class _FilmPageState extends State<FilmPage> {
 
   // 获取数据
   _pullNet() async {
-    final url = 'http://api.douban.com/v2/movie/top250?start=25&count=20';
+    final url = 'http://douban.uieee.com/v2/movie/top250?start=25&count=20';
     var response = await HttpUtil().get(url);
     if (response != null) {
       setState(() {

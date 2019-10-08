@@ -19,7 +19,7 @@ class _BooksPageState extends State<BooksPage> {
     }
 
   _reloadData() async {
-    final url = 'http://api.douban.com/v2/movie/in_theaters?city=上海&start=0&count=10';
+    final url = 'http://douban.uieee.com/v2/movie/in_theaters?city=上海&start=0&count=10';
     final response = await HttpUtil().get(url);
     if (response != null) {
       setState(() {

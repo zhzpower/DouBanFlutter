@@ -14,17 +14,21 @@ class _FansViewState extends State<FansView> {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            Container(
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(2, 1, 2, 1),
-                child: Text(tipsNum, style: TextStyle(fontSize: 10, color: Colors.white),),
+            Align(
+              alignment: Alignment.centerRight,
+              child: Container(
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(2, 1, 2, 1),
+                  child: 
+                  Text(tipsNum, style: TextStyle(fontSize: 10, color: Colors.white),),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  border: Border.all(color: Colors.white, width: 1.0),
+                  borderRadius: BorderRadius.circular(10)
+                ),
               ),
-              decoration: BoxDecoration(
-                color: Colors.red,
-                border: Border.all(color: Colors.white, width: 1.0),
-                borderRadius: BorderRadius.circular(10)
-              ),
-        )
+            )
           ],
         ),
         Text(totalNum.toString()),
