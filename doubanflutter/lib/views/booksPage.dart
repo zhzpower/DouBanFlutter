@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:doubanflutter/models/movie.dart';
 import 'package:doubanflutter/tools/NetWork.dart';
+import 'bookDetailPage.dart';
 
 class BooksPage extends StatefulWidget {
   @override
@@ -46,16 +47,26 @@ class _BooksPageState extends State<BooksPage> {
               final item = this.myList[index];
               return Container(
                 child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Image.network(item.image, height: 120, width: 80,),
-                      Padding(
-                        padding: EdgeInsets.only(top: 10),
-                        child: Text(item.title, style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold, fontSize: 16)),
-                      )
-                    ],
-                  ),
+                  child: GestureDetector(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Image.network(item.image, height: 120, width: 80,),
+                        Padding(
+                          padding: EdgeInsets.only(top: 10),
+                          child: Text(item.title, style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold, fontSize: 16)),
+                        )
+                      ],
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context, 
+                        MaterialPageRoute(builder: (context) {
+                          return BookPageDetail();
+
+                        }));
+                    },
+                  )
                 ),
               );
             },
