@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
 }
 
 class TabbarPage extends StatefulWidget {
-  // MyHomePage({Key key, this.title}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
       return _TabbarPageState();
