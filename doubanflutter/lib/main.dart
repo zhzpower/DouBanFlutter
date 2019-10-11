@@ -10,7 +10,6 @@ void main() {
   debugPaintSizeEnabled=false;
   runApp(MyApp());
 }
-// void main() => runApp(MyApp());
 // https://github.com/rhymelph/flutter_douban
 
 class MyApp extends StatelessWidget {
