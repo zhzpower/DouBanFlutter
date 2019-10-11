@@ -54,7 +54,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text("剧情简介\n",style: TextStyle(color: Color(0xff9b9b9b)),),
+                        Text("剧情简介 \n",style: TextStyle(color: Color(0xff9b9b9b)),),
                         Text(this.movieDetail.summary),
                         
                       ],
