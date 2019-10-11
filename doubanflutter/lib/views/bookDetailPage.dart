@@ -16,7 +16,6 @@ class _BookPageDetailState extends State<BookPageDetail> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          // backgroundColor: Colors.black26,
           bottom: TabBar(
             // isScrollable: true,
             indicatorColor: Colors.red,
