@@ -22,7 +22,6 @@ class _BookPageDetailState extends State<BookPageDetail> {
             indicatorWeight: 3,
             labelColor: Colors.red,
             unselectedLabelColor: Colors.white,
-          
             tabs: <Widget>[
               Tab(icon: Icon(Icons.directions_car)),
               Tab(icon: Icon(Icons.directions_transit)),
